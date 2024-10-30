@@ -1,0 +1,19 @@
+:root {
+    --container: 1780px;
+    --container-md: 1560px;
+    --container-md-px: 6.179%; /* 1780px - 1560px / 100 */
+  }
+  
+  .container {
+    max-width: 1780px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+  }
+  
+  @media screen(sm) {
+    .container-md {
+      padding: 0 var(--container-md-px);
+    }
+  }
+  

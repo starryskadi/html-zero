@@ -1,0 +1,155 @@
+/* Configure all fonts here */
+
+@font-face {
+    font-family: "Source Han Sans TC";
+    src: url("../fonts/sourcehansans/SourceHanSansTC.otf") format("opentype");
+}
+  
+:root {
+--scale: 1;
+
+--min-vw: 640;
+--max-vw: 1920;
+
+/* convert to px */
+--min-vw-px: calc(var(--min-vw) * 1px);
+--max-vw-px: calc(var(--max-vw) * 1px);
+
+/* font sizes at --max-vw */
+--text-h1: 48;
+--text-h2: 32;
+--text-h3: 28;
+--text-title: 24;
+--text-button: 20;
+--text-description: 16;
+--text-body-1: 20;
+--text-body-2: 18;
+--text-body-input: 14;
+
+/* font sizes at --min-vw */
+--text-h1-min: calc(var(--text-h1) * 0.585);
+--text-h2-min: calc(var(--text-h2) * 0.625);
+--text-h3-min: calc(var(--text-h3) * 0.645);
+--text-title-min: calc(var(--text-title) * 0.835);
+--text-button-min: calc(var(--text-button) * 0.75);
+--text-description-min: calc(var(--text-description) * 0.725);
+--text-body-1-min: calc(var(--text-body-1) * .75);
+--text-body-2-min: calc(var(--text-body-2) * 0.67);
+--text-body-input-min: calc(var(--text-body-input) * 1);
+}
+
+@layer components {    
+    html,
+    body {
+        @apply font-primary;
+        font-size: 16px;
+    }
+
+    .font-primary {
+        font-family: "Source Han Sans TC", sans-serif;
+    }
+
+    .fluid-fs {
+        --max-fs: var(--text-base);
+        --min-fs: var(--text-base-min);
+
+        --slope: calc((var(--max-fs) - var(--min-fs)) / (var(--max-vw) - var(--min-vw)));
+
+        --min-fs-px: calc(var(--min-fs) * 1px);
+        --max-fs-px: calc(var(--max-fs) * 1px);
+        --fs-px: calc(var(--slope) * (100vw - var(--min-vw-px)) + var(--min-fs-px));
+        
+        font-size: calc(var(--scale, 1) * clamp(var(--min-fs-px), var(--fs-px), var(--max-fs-px)));
+    }
+
+    .heading1 {
+        @apply fluid-fs;
+
+        --max-fs: var(--text-h1);
+        --min-fs: var(--text-h1-min);
+        line-height: normal;
+        font-weight: 700;
+    }
+
+    .heading2 {
+        @apply fluid-fs;
+
+        --max-fs: var(--text-h2);
+        --min-fs: var(--text-h2-min);
+        line-height: normal;
+        font-weight: 700;
+    }
+
+    .heading3 {
+        @apply fluid-fs;
+
+        --max-fs: var(--text-h3);
+        --min-fs: var(--text-h3-min);
+        line-height: normal;
+        font-weight: 700;
+    }
+
+    .text-title {
+        @apply fluid-fs;
+
+        --max-fs: var(--text-title);
+        --min-fs: var(--text-title-min);
+        line-height: 35px;
+        font-weight: 700;
+    }
+
+    .text-body-1 {
+        @apply fluid-fs;
+
+        --max-fs: var(--text-body-1);
+        --min-fs: var(--text-body-1-min);
+        line-height: normal;
+        font-weight: 350;
+    }
+
+    .text-body-2 {
+        @apply fluid-fs;
+
+        --max-fs: var(--text-body-2);
+        --min-fs: var(--text-body-2-min);
+        line-height: normal;
+        font-weight: 350;
+    }
+
+    .text-body-input {
+        @apply fluid-fs;
+
+        --max-fs: var(--text-body-input);
+        --min-fs: var(--text-body-input-min);
+        line-height: normal;
+        font-weight: 400;
+    }
+
+    .text-button {
+        @apply fluid-fs;
+
+        --max-fs: var(--text-button);
+        --min-fs: var(--text-button-min);
+        line-height: normal;
+        font-weight: 700;
+    }
+
+    .text-category {
+        @apply fluid-fs;
+
+        --max-fs: var(--text-button);
+        --min-fs: var(--text-button-min);
+        line-height: normal;
+        font-weight: 700;
+    }
+
+    .text-description {
+        @apply fluid-fs;
+
+        --max-fs: var(--text-description);
+        --min-fs: var(--text-description-min);
+        line-height: normal;
+        font-weight: 350;
+    }
+}
+  
