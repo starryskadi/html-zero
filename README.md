@@ -1,5 +1,5 @@
 ## Introduction
-This project aim to simplify the HTML development through `gulp`. 
+This project aims to simplify HTML development using gulp. Sometimes, you don't need React, Webpack, or other modern technologies to build a simple website. If you're looking for reactivity, a component-based approach, pages based router without the overhead, then html-zero could be a great fit for you. 
 
 ### Get Started
 1. Fork this responsitory to create another respository
