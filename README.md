@@ -69,3 +69,15 @@ This project aim to simplify the HTML development through `gulp`.
 | @@beforescript;  | Load `/js/before.js` |
 
 The other template strings are processed using [gulp-file-include](https://www.npmjs.com/package/gulp-file-include) with the updated prefix `@@` and suffix `;` and **@@include base file** path start from src. 
+
+## Fix the syntax highlighting in css
+
+Place this code into `.vscode/settings.json`
+
+```json
+{
+    "files.associations": {
+        "*.css": "tailwindcss"
+      }
+}
+```
