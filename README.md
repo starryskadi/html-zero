@@ -6,13 +6,6 @@ This project aims to simplify HTML development using gulp. Sometimes, you don't 
 2. Git clone the forked respository 
 3. Run `npm run dev`
 
-### Notes
-- Don't push directly to **this theme responsitory**
-- There must't any hardcoded text & files in slices, must use [`@@variable_name;`](https://www.npmjs.com/package/gulp-file-include#include-options---type-json) for text and `@@public('file_name');` to load the files
-- Alpine JS
-  - Use Gulp Render (SSR) (eg. `@@for`) over Alpine Render (CSR) (eg. `x-for`)
-  - Use `Alpine.data` over Alpine attributes `x-data` 
-
 ### Tasks
 - [x] `Initial Setup`
 - [x] `@@beforescripts;` to load `/js/before.js`
