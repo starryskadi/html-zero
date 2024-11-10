@@ -100,6 +100,8 @@ function prepareBeforeScripts(done) {
     return src([
         'src/scripts/before/**/*.js',        
     ])
+    .pipe(concat('before.js', { newLine: ';' }))
+    .pipe(dest(`${filePath}/js/`))
     .pipe(
         map(function(file, done) {            
             const newFileContent = browserify(file.path, {debug: true })
@@ -112,8 +114,7 @@ function prepareBeforeScripts(done) {
         })
     )
     .pipe(buffer())    
-    .pipe(terser())
-    .pipe(concat('before.js', { newLine: ';' }))
+    .pipe(terser())    
     .pipe(dest(`${filePath}/js/`))
 }
 
@@ -127,8 +128,7 @@ function prepareScripts(done) {
     .pipe(concat('script.js', { newLine: ';' }))
     .pipe(dest(`${filePath}/js/`))
     .pipe(
-        map(function(file, done) {         
-            console.log(file)   
+        map(function(file, done) {                     
             const newFileContent = browserify(file.path, {debug: true })
             .transform('babelify', {
                 presets: ["@babel/preset-env"]
